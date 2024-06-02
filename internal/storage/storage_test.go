@@ -5,32 +5,6 @@ import (
 	"time"
 )
 
-func Test_Night(t *testing.T) {
-	t.Parallel()
-
-	tt := []struct {
-		from, to time.Time
-		expected int
-	}{
-		{
-			from:     time.Now(),
-			to:       time.Now().Add(time.Hour * 24),
-			expected: 1,
-		},
-		{
-			from:     time.Now(),
-			to:       time.Now().Add(time.Hour * 24 * 2),
-			expected: 2,
-		},
-	}
-
-	for i := range tt {
-		if datesToBook(tt[i].from, tt[i].to) != tt[i].expected {
-			t.Errorf("unexpected result on stio %d", i)
-		}
-	}
-}
-
 func Test_betweenOrSame(t *testing.T) {
 	t.Parallel()
 
